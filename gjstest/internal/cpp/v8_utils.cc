@@ -50,7 +50,7 @@ static v8::Platform* platform_;
 // Ensure that v8 and platform_ have been initialized.
 static void InitOnce() {
   static const int dummy = []{
-    platform_ = v8::platform::CreateDefaultPlatform();
+    platform_ = v8::platform::NewDefaultPlatform().release();
     v8::V8::InitializePlatform(platform_);
     v8::V8::Initialize();
     return 0;
