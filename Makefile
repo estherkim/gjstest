@@ -5,7 +5,7 @@ default: gjstest/internal/cpp/gjstest.bin share
 ######################################################
 
 # The prefix into which the user wants to install.
-export PREFIX = /usr/local
+export PREFIX = /opt/homebrew
 DEFAULT_DATA_DIR = $(PREFIX)/share/gjstest
 
 # Preprocessor flags.
@@ -13,18 +13,18 @@ CPPFLAGS += -I.
 CPPFLAGS += -I./third_party/gmock/include
 CPPFLAGS += -I./third_party/gmock/gtest/include
 CPPFLAGS += -I/usr/include/libxml2
-CPPFLAGS += -I/usr/local/opt/libxml2/include/libxml2
-CPPFLAGS += -I/usr/local/include
+CPPFLAGS += -I/opt/homebrew/opt/libxml2/include/libxml2
+CPPFLAGS += -I/opt/homebrew/include
 CPPFLAGS += -I$(HOME)/.homebrew/include
 CPPFLAGS += -I$(HOME)/.homebrew/opt/libxml2/include/libxml2
 CPPFLAGS += -DDEFAULT_DATA_DIR=$(DEFAULT_DATA_DIR)
 
 # Compiler flags.
 CXXFLAGS += -DHASH_NAMESPACE=__gnu_cxx
-CXXFLAGS += -std=c++11
+CXXFLAGS += -std=c++17
 
 # Linker flags.
-LDFLAGS += -L/usr/local/lib
+LDFLAGS += -L/opt/homebrew/lib
 LDFLAGS += -L$(HOME)/.homebrew/lib
 
 # Fix clock_gettime in timer.cc.
