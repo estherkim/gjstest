@@ -106,7 +106,7 @@ void ConvertToStringVector(
   const uint32 length = array->Length();
 
   for (uint32 i = 0; i < length; ++i) {
-    result->push_back(ConvertToString(isolate, array->Get(i)));
+    result->push_back(ConvertToString(isolate, array->Get(isolate->GetCurrentContext(), i).ToLocalChecked()));
   }
 }
 
