@@ -30,6 +30,7 @@ using v8::Function;
 using v8::FunctionTemplate;
 using v8::Isolate;
 using v8::Local;
+using v8::NewStringType;
 using v8::MaybeLocal;
 using v8::Message;
 using v8::ObjectTemplate;
@@ -86,8 +87,7 @@ static Local<String> ConvertString(
   return String::NewFromUtf8(
       isolate,
       s.data(),
-      String::kNormalString,
-      s.size());
+      NewStringType::kNormal).ToLocalChecked();
 }
 
 std::string ConvertToString(v8::Isolate* isolate, const Local<Value>& value) {
